@@ -1,5 +1,4 @@
 # ![pageres](matega/static/imgs/matega.jpg)
-[![pipeline status](https://gitlab.stud.idi.ntnu.no/programvareutvikling-v19/gruppe-23/badges/master/pipeline.svg)](https://gitlab.stud.idi.ntnu.no/programvareutvikling-v19/gruppe-23/commits/master)
 
 ## What is Matega?
 Matega is an environmentally driven business, working towards reducing food waste by giving you high-quality recipes based off what you have in your fridge!
