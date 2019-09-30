@@ -1,0 +1,20 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<!--Fil som bekrefter at man har sendt inn en søknad om å bli kokk.-->
+<div class="container4 row">
+    
+    <a href = "/logout/"  class = "høyrehjørne1" >Sign out</a>
+
+    <h1 class="a-heading">Your application has been received</h1>
+
+    <form method="post" action="{% url 'application' %}" class="application-form col s12 m12 l12"></form>
+
+
+
+
+</div>
+
+
+{% endblock %}

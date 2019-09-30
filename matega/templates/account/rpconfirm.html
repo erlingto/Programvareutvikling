@@ -1,0 +1,25 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  {% if validlink %}
+  <div class="container2">
+
+    <h1>Change password</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Send" class="resetbutton"/>
+      <input type="hidden" name="next" value="{{ next }}" />    </form>
+    </div>
+  {% else %}
+  <div class="container2">
+
+    <p>
+      The password reset link was invalid, possibly because it has already been used.
+      Please request a new password reset.
+    </p>
+    
+    </div>
+  {% endif %}
+{% endblock %}

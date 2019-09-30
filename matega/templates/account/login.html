@@ -1,0 +1,45 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %} 
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed,
+  please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
+<!--Html for å logge inn. Må ha med riktig form for at det skal passe med backend-->
+
+<div class="container4 row">
+  <h1 class = "login-heading">Sign In</h1>
+
+  <form method="post" action="{% url 'account_login' %}" class="login-form col s12 m12 l12">
+  {% csrf_token %}
+      {{ form }}
+    <p class="space col s12 m12 l12"></p>
+
+    <button type="submit" value="Log in" class="login-button waves-effect waves-green">Log in</button>
+    <input type="hidden" name="next" value="{{ next }}" />
+
+    <!--Disse nedenfor lager bare mellomrom. col s12 m12 l12 gjør at det passer til mobil.-->
+    <p class="space-class col s12 m12 l12"></p>
+    <p class="space-class col s12 m12 l12"></p>
+    <p class="space-class col s12 m12 l12"></p>
+    <p class="space-class col s12 m12 l12"></p>
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <!--<p><a href="{% url 'account_reset_password' %}">Lost password?</a></p>-->
+
+  </form>
+
+
+</div>
+
+{% endblock %}

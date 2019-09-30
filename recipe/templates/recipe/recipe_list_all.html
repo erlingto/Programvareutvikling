@@ -1,0 +1,50 @@
+{% extends "matega/base.html" %}
+{% load static %} 
+
+{% block content %}
+    
+    <p class="space-class col s12 m12 l12"></p>
+    <!--Navigation back to homepage-->
+    <a class="recipe_list_font_size venstrehjørne" href="/homepage/">Back to homepage</a>
+    <!--Logout of the website-->
+    <a href = "/logout/" class = "høyrehjørne-recipe-list midtstill" >Sign out</a>
+
+    
+
+    
+
+
+    <h1 class="col s12 m12 l12 a-heading ">Recipe list</h1>
+    <!--Loops through all the recipes and shows them-->
+    <p class="col s12 m12 l12 midtstill">Click on title to view recipe description</p>
+        <ul class="row s12 m12 l12">
+        {% for Recipe in latest_recipe_list %}
+            <div class="column s12 m12 l12">
+                <div class="card s12 m12 l12">
+                    <span class="card-title activator grey-text text-darken-4 col s12 m12 l12">
+                        {{Recipe.name}}
+                    </span>
+                    <div class="card-image col s12 m12 l12 ">
+                        <img src="/static/imgs/{{Recipe.name}}.jpg" class = "recipe_list_img col s12 m12 l12">
+                    </div>
+                    <div class="card-content">
+                        <h6 class="" style=color:black; href="/recipe/{{ Recipe.id }}">Difficulty: {{Recipe.difficulty}}</h6>
+                    </div>
+                    <div class="card-reveal col s12 m12 l12">
+                        <span class="card-title grey-text text-darken-4">{{Recipe.name}}<i class="material-icons right">close</i></span>
+                        <pre class="midtstill col s12 m12 l12" style=font-style:italic;>Stepwise description: <br></br>{{Recipe.recipe_text}}</pre>
+                    </div>
+                    <div class="card-action">
+                        <a href="/recipe/{{Recipe.id}}" style=color:#708C67;>Go to recipe</a>
+                    </div>
+                    <p class="space-class col s12 m12 l12"></p>
+                </div>
+        </div>
+    {% endfor %}
+    </ul>
+</div>
+
+<p class="midtstill col s12 m12 l12"><a class="btn" href="/recipe/">Sort by ingredients in my fridge</a></p>
+<p class="space col s12 m12 l12"></p>
+    
+{% endblock %}

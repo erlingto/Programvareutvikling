@@ -1,0 +1,36 @@
+{% extends 'matega/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container4 col">
+
+    <a href = "/logout/"  class = "høyrehjørne1" >Sign out</a>
+
+    <h1>Fridge successfully updated!</h1>
+
+    <a href="/fridge/" class="startsidewrapper">
+        <button value="Add_more_ingredients" class="signup-button">
+            Add more ingredients
+        </button>
+    </a>
+
+    <p class="space-class s12 m12 l12"></p>
+    <a href="/homepage/" class="startsidewrapper">
+        <button value="Back_to_homepage" class="signup-button">
+            Back to homepage
+        </button>
+    </a>
+
+    <p class="space-class s12 m12 l12"></p>
+    <a href="/fridge/1/" class="startsidewrapper">
+        <button value="Watch_Fridge" class="signup-button">
+            Show fridge
+        </button>
+    </a>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "matega/base.html" %}
+{% load static %} 
+
+{% block content %}
+
+
+    <!--Navigation back to recipe list:-->
+    <p class="space-class col s12 m12 l12"></p>
+    <a href="/recipe/" class="recipe_list_font_size venstrehjørne col s2 m12 l4">Back to recipes</a>
+    <!--Logout navigation-->
+    <a href = "/logout/" class="høyrehjørne-recipe midtstill" >Sign out</a>
+    <p class="spaceclass col s12 m12 l12"></p>
+    <h1 class="midtstill col s12 m12 l12">{{ recipe.name }}</h1>
+
+    <!--pictues of the recipe-->
+    <p class="space-class col s2 m2 l2"></p>
+    <img src="/static/imgs/{{recipe.name}}.jpg" class="midtstill1 recipe_index_img col s8 m8 l8" alt="bilde av oppskrift">
+    <p class="space-class col s2 m2 l2"></p>
+
+    <p class="space-class col s12 m12 l12"></p>
+    <p class="space-class col s12 m12 l12"></p>
+    
+    <div class = "midstill col s12 m12 l3"></div>
+    <p class="midtstill midtstill4 col s12 m12 l3  flow-text"><strong>Difficulty: {{ recipe.difficulty}}</strong></p>
+    <p class="midtstill midtstill4 col s12 m12 l3 flow-text"><strong>Rating: {{ rating }}</strong></p>  
+    <p class="space-class col s12 m12 l12"></p>
+
+    <hr class = "midstill col s12 m12 l12" ></hr>
+    <div class = "midstill col s12 m12 l5">
+        <p class = "midtstill4 col s12 m12 l10 flow-text"><strong>Ingredients</strong></p>
+        <hr class = "midstill col s12 m12 l12" ></hr>   
+        <ul>
+            <!-- iterates through all recipeingredient and checks if they are connected to the recipe the user will view and prints them-->
+            {% for recipeingredient in recipeingredients %}
+            {% if recipeingredient.recipe == recipe %}
+            <li class="midtstill3 col s12 m12 l10 flow-text">{{ recipeingredient.ingredient.name }} {{recipeingredient.quantity}} {{ recipeingredient.ingredient.typething}}</li>
+            {% endif %}
+            {% endfor %}
+            <hr class = "midstill3 col s12 m12 l12" ></hr>
+        </ul>
+    </div>
+    <div class = "col s12 m12 l12"> 
+            <p class = "midtstill4 col s12 m12 l12 flow-text"><strong>Recipe description</strong></p>
+            <p class="space-class col s12 m12 l12"></p>
+            <div class="col s12 m12 l12"> <pre style="white-space:pre-wrap" class="recipe-text col s12 m12 l12">{{ recipe.recipe_text }}</pre></div> 
+            <form class="midtstill col s12 m12 l12" action="{% url 'recipe:make_recipe' recipe.pk %}" method="post">
+                    {% csrf_token %}
+            <p class="space-class col s12 m12 l12"></p>
+            <input type="submit" class="makerecipe-btn btn col s12 m12 l12" value="Make Recipe" name="mybtn"></input>
+            </form>  
+    </div>   
+    <p class="space col s12 m12 l12"></p>
+    <p class="space col s12 m12 l12"></p>
+    <div class = "midstill3 col s12 m12 l4"></div> 
+    <div class = "midstill3 col s12 m12 l4">
+        <!-- rate button -->
+            <form action="" method="post" class="midtstill col s12 m12 l12 flow-text">
+                    {% csrf_token %} 
+                    <p class="space col s12 m12 l12"></p>
+                    <p class="midtstill3 col s12 m12 l12 flow-text" >{{ form.user }}</p>
+                    <p class="midtstill3 col s12 m12 l12 flow-text" >{{ form.recipe }}</p>
+                    <p class="midtstill3 col s12 m12 l12">Your rating {{ form.rating }}
+                    <input type="submit" class="makerecipe-btn btn" value = "rate"></input></p>                    
+                
+                </form>
+    </div>  
+<!--</div>-->
+<p class="space-class col s12 m12 l12"></p>
+<p class="space-class col s12 m12 l12"></p> 
+<!--Knapp for å lage oppskriften, skal fjerne tilsvarende ingredienser fra kjøleskapet-->
+<script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+{% endblock %}
+{% block footer %}
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+
+{{form.media}}
+{% endblock %}

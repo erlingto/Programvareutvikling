@@ -1,0 +1,57 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %}
+{% load usergroup %}
+
+{% block content %}
+
+ <!-- homepage containing navigation to the recipes "im hungry" and your fridge "view fridge"
+     from this page you can also apply to become a chef -->
+<div class="container4 row">
+
+    {% if user.is_authenticated %}
+    <a href = "/logout/"  class ="right" >Sign out</a>
+    <img src="/static/imgs/logo_transparent.matega.png" class="homepage-logo" alt="logo">
+
+    <p class="space row s12 m12 l12"></p>
+    <a href="/recipe/show_all_recipes/" class="knapp row s12 m12 l12">
+        <button value="I'm hungry" class="hungry-button waves-effect waves-light">
+            I'm hungry
+        </button>
+    </a>
+        
+
+    <p class="space-class row s12 m12 l12"></p>
+    <p class="space-class row s12 m12 l12"></p>
+    <a href="/fridge/1/" class="knapp row s12 m12 l12"> <!--har endret til fridge her-->
+        <button value="View Fridge" class="groceries-button waves-effect waves-light">
+            View Fridge
+        </button>
+    </a>
+
+    <p class="space-class row s12 m12 l12"></p>
+    <div class="midtstill1 row s12 m12 l12">
+        <!-- users thats not accepted chefs gets access to a page where they can apply to become one. Accepted chefs get access to a page where they can submit new recipes -->
+        {%  if user|has_group:'Kokk' %}
+        {% else %}
+            <div class="row s12 m12 l12"></div>
+            <a href="{% url 'chef:application' %}" class="startsidewrapper register_font_size row s12 m12 l12">Register as a chef?</a>
+        {% endif %}
+        <!-- staff users gets access to a page where they can see and accept chef applications -->
+        {% if user.is_staff %}
+            <div class="row s12 m12 l12"></div>
+            <a href="{% url 'chef:applicationList' %}" class="startsidewrapper register_font_size row s12 m12 l12">Review chef applications</a>
+        {% endif %}
+        {%  if user|has_group:'Kokk' %}
+            <div class="row s12 m12 l12"></div>
+            <a href="{% url 'chef:applicationList' %}" class="startsidewrapper register_font_size row s12 m12 l12">Submit new recipe</a>
+        {% endif %}
+    </div>
+
+    <!-- Button to log in-->
+    {% else %}
+    <p>You need to be logged in to view this page.</p>
+    <a href="{% url 'account_login' %}">Click here to log in</a>
+    {% endif %}
+</div>
+
+{% endblock %}

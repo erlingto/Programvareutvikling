@@ -1,0 +1,30 @@
+{% extends 'matega/base.html' %} 
+{% load staticfiles %}
+
+
+{% block content %}
+
+<body id = "startside"></body>
+<div class="containerstart row">
+<div class="startsidewrapper">
+    <img src="{% static 'imgs/matega.jpg' %}" class = "mategabilde" alt="Matega"><br/>
+    <div class="spacepicture"></div>
+    <a href = "/login/">
+        <button class="buttonstartside waves-effect waves-light" class="col s6 m12 l12">
+            Log in
+        </button><br/>
+    </a>  
+
+    <div class="spacebutton"></div>
+    
+    <a href = "/signup/">
+        <button class="buttonstartside waves-effect waves-green" class="col s6 m12 l12">
+            Sign up
+        </button><br/>
+    </a>  
+</div>    
+</div>
+
+
+
+{% endblock content %}

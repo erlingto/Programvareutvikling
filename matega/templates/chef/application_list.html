@@ -1,0 +1,59 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!--Ikke sikkert at vi trenger denne likevel. Kan gjøres i admin.-->
+<div class="container4 row">
+
+  <!--For å komme tilbake til homepage:-->
+  <a class="left" href="/homepage/">Back to homepage</a>
+  <!--For å logge ut:-->
+  <a class="right" href="/logout/">Sign out</a>
+  <p class="space-class col s12 m12 l12"></p>
+    {% if user.is_staff %}
+    <h1 class="a-heading">Chef approval</h1>
+
+        {% for application in object_list %}
+          <div class="row">
+            <div class="col s12 m12">
+              <div class="card white darken-1">
+                <div class="card-content black-text">
+                  <span class="card-title">Application from {{ application.user }}</span>
+                  <p>{{ application.text }}</p>
+                </div>
+                <div class="card-action">
+                <form action="{% url 'chef:chefStatus' %}" method="post">
+                    {% csrf_token %}
+                    <!--<a href="#" class="waves-effect green-text waves-green">Approve</a>-->
+                    <input type="hidden" value="{{ application.user }}" name="user"/>
+                    <button class="btn makerecipe-btn waves-effect waves-light" type="submit" name="status" value="approved">Approve {{ application.user }}
+                    </button>
+                    <button class="btn makerecipe-btn red waves-effect waves-light" type="submit" name="status" value="declined">Decline {{ application.user }}
+                    </button>
+
+                  <!--<a href="#" class="waves-effect red-text waves-green">Decline</a>-->
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <p class="space-class col s12 m12 l12"></p>
+        <div class="container-inner col s12 m12 l12">
+            <!--
+            <button type="submit" value="not approved" class="not-approved-button waves-effect waves-green col s12 m12 l12">Not approved</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+
+            <button type="submit" value="approve as chef" class="approved-button waves-effect waves-green col s12 m12 l12">Approve as chef</button>
+            <input type="hidden" name="next" value="{{ next }}" />-->
+
+        </div>
+    {% else %}
+    <p>You do not have permission to view this page.</p>
+    {% endif %}
+</div>
+
+
+
+{% endblock %}

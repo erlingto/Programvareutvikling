@@ -1,0 +1,41 @@
+{% extends "matega/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block content %}
+
+<!--Html for side som spør om man er sikker på om man vil logge ut.2 alternativer:-->
+
+<div class="container4 row">
+
+    <!--For å komme tilbake til homepage-->
+    <a class="recipe_list_font_size venstrehjørne" href="/homepage/">Back to homepage</a>
+    <h1>{% trans "Sign Out" %}</h1>
+
+    <p class="startsidewrapper col s12 m12 l12">{% trans 'Are you sure you want to sign out?' %}</p>
+    <p class="space-class col s12 m12 l12"></p>
+
+    <!--Alt.1: logger ut.-->
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <div class="spacebutton"></div>
+        <button type="submit" class="hungry-button waves-effect waves-light">{% trans 'Sign Out' %}</button>
+
+    </form>
+    <!--Alt.2: tilbake til hjemmesiden.
+    <p class="space-class col s12 m12 l12"></p>
+    <div class="spacebutton"></div>
+        <a href="/homepage/">
+            <button class="hungry-button waves-effect waves-light">
+                Back to homepage
+            </button>
+        </a>
+    -->
+</div>
+
+{% endblock %} 
+

@@ -1,0 +1,60 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %} 
+{% load app_filters %}
+
+{% block content %}
+
+<!-- html page for showing the fridge-->
+<div class="container4 row">
+    <h1 class= "midtstill5 col s10 m10 l8"> {{ fridge.name }}</h1>
+    <!-- button to add new ingredient types-->
+    <a href="/fridge/" > 
+        <button value="Add more ingredients" class="btn waves-effect waves-light col s12 m2 l4">
+            Add new ingredient
+        </button>
+    </a>
+    <form action="" method="post">
+        {% csrf_token %}
+    <table class="highlight centered responsive-table col s12 m12 l12">
+        
+        <tr>
+            <th class = "midstill5 col s4 m2 l4"> Ingredient name</th>
+            <th class ="space col s4 m4 l4" ></th>
+            <th class = "midstill5 col s4 m6 l6"> Quantity</th>
+        </tr>   
+        
+        <tbody class ="midstill3 col s6 m6 l6">
+             <!-- iterates through all the fridgeingredients and checks if they are related to the users fridge then prints the name -->
+            {% for fridgeingredient in fridgeingredients %}
+                {% if fridgeingredient.fridge == fridge %}
+                <tr class = "midstill col s12 m12 l12">
+                    <td><p>{{ fridgeingredient.ingredient.name }}</p> </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+        <tbody class = "midstill3 col s6 m6 l6">
+            <!-- iterates through all the fridgeingredients and checks if they are related to the users fridge then prints the corresponding quantity field with a quantity field-->
+            {% for fridgeingredient in fridgeingredients %}
+                {% if fridgeingredient.fridge == fridge %}
+                <!-- uses an app filter defined  in templatetags to acess the quantity field after the name of the ingredient its related to-->
+                <tr class = "midstill3 col s12 m12 l12">
+                    <td class = "midstill5"> {{form|get_at_index:fridgeingredient.ingredient.name}} {{ fridgeingredient.ingredient.typething}} </td>
+                </tr>
+                    {% endif %}
+                {% endfor %}
+        </tbody>
+    </table>
+    <input type="submit" class="hungry-button" value = "Update Fridge" >
+    </form>
+<p class="space col s12 m12 l12"></p>
+<p class="midtstill col s12 m12 l12"><a class="recipe_list_font_size" href="/homepage/">Homepage</a></p>
+<p class="space col s12 m12 l12"></p>
+</div>
+{% endblock %}
+{% block footer %}
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+{{ form.media }}
+{% endblock %}
+

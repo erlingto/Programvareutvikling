@@ -1,0 +1,32 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!--Ikke sikkert at vi trenger denne likevel. Kan gjøres i admin.-->
+<div class="container4 row">
+    <h1 class="a-heading">Chef approval</h1>
+
+    <form method="post" action="{% url 'account_login' %}" class="a-form col s12 m12 l12">
+        {% csrf_token %}
+
+        <p class="space-class col s12 m12 l12"></p>
+        <div class="container-inner col s12 m12 l12">
+
+
+            <button type="submit" value="not approved" class="not-approved-button waves-effect waves-green col s12 m12 l12">Not approved</button>
+            <!--<input type="hidden" name="next" value="{{ next }}" />-->
+
+            <button type="submit" value="approve as chef" class="approved-button waves-effect waves-green col s12 m12 l12">Approve as chef</button>
+            <!--<input type="hidden" name="next" value="{{ next }}" />-->
+
+
+
+        </div>
+
+    </form>
+</div>
+
+
+
+{% endblock %}

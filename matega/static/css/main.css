@@ -1,0 +1,652 @@
+/*Her ligger css til alle templatesene til nettsiden. Det er understreket hvor css'en er brukt
+over koden. Det er en del av koden som er lik, så dersom vi får tid prøver vi å erstatte noe med
+det vi allerede har (mindre kode)*/
+
+/* CSS Startside */
+
+.containerstart{
+    background-color: #D4F0AB;
+    margin-top: 3em;
+  }
+
+.startsidewrapper{
+  text-align: center;
+}
+
+.mategabilde {
+    border-radius: 50%;
+    width: 40%;
+    padding: 2em;
+  }
+  
+.buttonstartside {
+    background-color: White;
+    color: #708C67;
+    padding: 10px;
+    text-align: center;
+    text-size-adjust: 20%;
+    border: 0.1em solid #708C67;
+    font-size: 30px;
+    width: 10em;
+    height: 2.3em;
+    display: inline-block;
+    margin: 0 auto;
+  }
+  
+.spacepicture {
+  padding-bottom: 1cm;
+}
+
+.spacebutton {
+  padding-bottom: 4mm;
+}
+
+#startside{
+  background-color: #D4F0AB; 
+}
+  
+
+/* CSS Reset password 
+  
+  .resetbutton{
+    color: white;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    padding: 10px;
+    background-color: #708C67;
+  }
+
+  .containerstart{
+    background-color: #D4F0AB;
+    margin-top: 5em;
+  }
+
+  #rp{
+    background-color: white; 
+  }
+  
+  .container5{
+    border: 0.5px solid #cecece!important;
+    border-radius: 3px !important;
+    box-shadow: 0 3px 7px 0 rgba(0,0,0,0.2), 0 3px 20px 0 rgba(0,0,0,0.19);
+    padding: 50px;
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 3em;
+  }
+*/ 
+
+
+/* CSS Application */ 
+
+.container4{ /*Denne brukes av veldig mange filer. Danner containeren rundt innholdet på sidene.*/
+  border-radius: 3px;
+  box-shadow: 0 3px 7px 0 rgba(0,0,0,0.2), 0 3px 20px 0 rgba(0,0,0,0.19);
+  padding: 15px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 3em;
+  text-align: center;
+}
+
+.apply-button{
+    color: white;
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(112,140,103, 0.8);
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: none;
+    height: 40px;
+}
+
+input{ /*Denne burde egentlig ikke være her*/
+    border: 0.5px solid #cecece!important;
+    border-radius: 3px !important;
+    box-sizing: border-box;
+}
+
+.a-form{
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto !important;
+}
+
+h1{ /*Denne burde egentlig ikke være her*/
+    font-size: 3em;
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 40px;
+}
+
+.textarea{
+    max-width: 100%;
+}
+
+.a-heading{
+  font-size: 3em;
+}
+
+/* approval.css */
+
+.not-approved-button{
+  background-color: rgba(143, 28, 28, 0.8);
+  color: white;
+  float: left;
+  width: 100%;
+  padding: 20px;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  height: 40px;
+  margin-right: 50%;
+}*/
+
+/*.approved-button{
+  box-sizing: border-box;
+  background-color: rgba(112,140,103, 0.8);
+  color: white;
+  float: right;
+  width: 100%;
+  padding: 20px;
+  display: inline-block;
+  margin: 0 auto;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  height: 40px;
+  margin-left: 50%;
+}*/
+
+.container-inner{
+  display: flex;
+}
+
+.space-class{
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.box{
+  border: 0.5px solid #cecece!important;
+  border-radius: 3px !important;
+  box-sizing: border-box;
+  width: 100%;
+  height: 20px;
+}
+
+/* Homepage css. Tror ikke alt dette blir brukt.*/
+
+.hungry-button{
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: none;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(112,140,103, 0.7);
+  border-radius: 3px;
+  color: white;
+
+}
+
+.groceries-button{
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: none;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(112,140,103, 0.7);
+  border-radius: 3px;
+  color: white;
+}
+
+.knapp{
+  color: white;
+  text-decoration: none;
+}
+
+.homepage-form{
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  margin: 0 auto !important;
+}
+
+.homepage-logo{
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
+  border: 0;
+  margin-top: 30px;
+}
+
+
+.mini-knapp{
+  box-sizing: 5px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background-color: #708C67;
+  border: none;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 100%;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 18px;
+}
+
+/* Login CSS */
+
+.login-button{
+  color: white;
+  display: block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border: none;
+  width: 100%;
+  padding: 20px;
+  background-color: #708C67;
+  border-radius: 3px;
+}
+
+.login-form{
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  margin: 0 auto !important;
+}
+
+.link-color{
+  color: #708C67;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+/* Logout CSS */
+
+.logged-out-form{
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  margin: 0 auto !important;
+  margin-top: 20px;
+}
+
+.logged-out-link{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Recipe_list CSS */
+
+.recipe_list_font_size{
+  font-size: large;
+  color: #708C67;
+}
+
+.register_font_size{
+  font-size: large;
+  color: #708C67;
+  text-align: center;
+}
+
+.bildefirkantet{
+  margin-top: 3em;
+  width: 60%;
+  margin-left: 3em;
+  float: left;
+}
+
+.headerrecipe{
+  font-size: 3em;
+  color: #4a4a4a;
+  margin-top: 1em;
+}
+
+/*Logout-knapp må plasseres riktig for hver html*/
+
+.høyrehjørne1{
+  position: relative;
+  top: 1em;
+  left: 40em;
+  font-size: 18px;
+}
+
+.høyrehjørne-application{
+  position: relative;
+  top: 1em;
+  left: 45em;
+  font-size: 18px;
+}
+
+.høyrehjørne2{
+  position: relative;
+  top: 1em;
+  left: 20em;
+  font-size: 18px;
+}
+
+.høyrehjørne-recipe{
+  position: relative;
+  top: 1em;
+  left: 30em;
+  font-size: 18px;
+}
+
+.høyrehjørne-recipe-list{
+  position:relative;
+  top:1em;
+  left: 27em;
+  font-size: 18px;
+}
+
+.høyrehjørne-homepage{
+  position: relative;
+  top: 1em;
+  left: 25em;
+  font-size: 18px;
+}
+
+.høyrehjørne-application-list{
+  position: relative;
+  top: 1em;
+  left: 48em;
+  font-size: 18px;
+}
+
+.venstrehjørne{
+  position: relative;
+  top: 1em;
+  font-size: 18px;
+}
+
+.venstrehjørne-application{
+  position: relative;
+  top: 1em;
+  font-size: 18px;
+  right: 25em;
+}
+
+.venstrehjørne1{
+  position: relative;
+  left: -14em;
+  right: 10em;
+  top: 1em;
+  font-size: 18px;
+}
+
+.venstrehjørne-recipe{
+  position: relative;
+  right: 0em;
+  top: 1em;
+  font-size: 18px;
+}
+
+.container_recipe{
+  border-radius: 3px;
+  box-shadow: 0 3px 7px 0 rgba(0,0,0,0.2), 0 3px 20px 0 rgba(0,0,0,0.19);
+  padding: 15px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 2px 16px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  transition: 0.3s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+.card:hover { /*Når man holder musa over*/
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.recipe_list_img{
+  width: 250px; /*250px*/
+  height: 200px; /*200px*/
+  margin: 0 auto;
+  display: block;;
+  border: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.recipe_index_img{
+  width: 250px; /*250px*/
+  height: 250px; /*200px*/
+  margin: 0 auto;
+  display: block;;
+  border: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+/*Usikker på om dette må med, er for å få de til å komme i kolonner*/
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%; /*100%*/
+    display: block;
+    margin-bottom: 20px;
+  }
+  .recipe_list_img{
+    width: 40%;
+    height: 20%;
+  }
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+/* Recipe CSS */
+
+.midtstill{
+  text-align:center;
+  margin: 0 auto;
+  display: block;
+}
+
+.p1{
+  font-size: 5px;
+}
+
+.recipe-text{
+  margin-right: 100px;
+  margin: 0 auto;
+  display: block;
+  font-size: 15px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.midtstill1{
+  font-size: medium;
+  text-align: center;
+}
+.midtstill3{
+  font-size: medium;
+  text-align: center;
+  margin: 0 auto;
+  width: 20%;   
+}
+.midtstill4{
+  font-size: large;
+  text-align: center;
+  margin: 0 auto;
+  width: 20%; 
+}
+.midstill5{
+  font-size: large;
+  text-align: right;
+  margin: 0 auto;
+  padding-top: 14px;
+  padding-bottom: 13px;  
+}
+
+tbody{
+  padding:0;
+}
+.recipe_img{
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  display: block;
+  border: 0;
+  margin-top: 30px;
+  max-width: 250px;
+  margin-left: 450px;
+}
+
+.makerecipe-btn{
+  background-color: #708C67;
+  color: white;
+}
+
+/* Signup CSS */
+
+.signup-form{
+  background-color: white;
+  width: 100%;
+  margin: 0 auto !important;
+  padding: 10px;
+}
+
+.privacy{
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+pre{
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.signup-heading {
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.signup-button{
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background-color: #708C67;
+  border: none;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+/* Fridge CSS */
+
+.ingredient{
+  text-align: left;
+  width: 50% !important;
+  padding-left: 5px !important;
+}
+
+.ingr-div{
+  max-width: 90%;
+  max-height: 90%;
+  background-color: rgba(112,140,103, 0.8)
+}
+
+.fridge-logo{
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
+  border: 0;
+  margin-top: 30px;
+}
+
+.right-sided{
+  float: right;
+  width: 50%;
+  margin-right: 0;
+  margin-top: 1em;
+}
+
+/*Add_recipe sine klasser: */
+
+.add-recipe-box{
+  height: 10%;
+  width: 50%;
+}
+
+.add-recipe-longbox{
+  box-sizing: large;
+  width: 100%;
+  height: 10%;
+}
+
+.add-recipe-quantity{
+
+}
+
+
+
+
+
+
+
+
+
+
+

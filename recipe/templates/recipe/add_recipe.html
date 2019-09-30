@@ -1,0 +1,80 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %} 
+
+{% block content %}
+
+<p class="space-class col s12 m12 l12"></p>
+<!--For å komme tilbake til homepage-->
+<a class="recipe_list_font_size venstrehjørne" href="/homepage/">Back to homepage</a>
+<!--For å logge ut-->
+<a href = "/logout/" class = "høyrehjørne-application midtstill" >Sign out</a>
+
+<h1>New recipe
+    <script>
+        var counter = 0;
+        function initializeSelect2(selectElementObj) {
+        $(document).on('autocompleteLightInitialize', '[data-autocomplete-light-function=select2]', function() {
+    // do select2 configuration on $(this)
+        })
+    }
+    function add_Field(){
+        document.getElementById('recipe_difficulty').innerHTML = "heisann";
+    }       
+    function add_text(counter){
+        counter = counter + 1;
+         //<<< The text you want to display
+        var itmingredient = document.getElementById('add_ingredients');
+        var clningredient = itmingredient.cloneNode(true); 
+        clningredient.id = "klone"+counter;
+        // <<< append content to the element
+        var itmbtn = document.getElementById('btn');
+        var btnclone = itmbtn.cloneNode(true);
+        btnclone.id = "idclone";
+        $('#btn').remove();
+        btnclone.id = "btn"
+        document.getElementsByTagName('p')[8].appendChild(clningredient);
+        //btnclone.childNodes(3).name = "hei";
+        //$('#klone select')[counter-1].name = "klone_"+counter;
+        document.getElementsByTagName('p')[8].appendChild(btnclone);
+        $('#klone'+ counter, 'span').next().remove();
+    }
+    </script>
+</h1>
+
+
+<form action="" method="post">
+        {% csrf_token %}
+    <p class="col s12 m12 l12"><strong>Recipe title:</strong></p>
+        {{form.name}}
+    <br>
+    <p class="col s12 m12 l12"><strong>Recipe description:</strong></p>
+        {{form.recipe_text}}
+    
+    <br>
+        {{form.pub_date.as_hidden}}
+    <br>
+    <p id = "hei">skjera?</p>
+
+    <p class="col s12 m12 l12" id= "recipe_difficulty"><strong>Recipe difficulty:</strong></p>
+        {{form.difficulty}}
+    
+    <br>
+
+    <div id = "add_ingredients" class = "col s12 m12 l12">
+    <p class="col s12 m12 l12" ><strong>Add ingredients:</strong></p>
+    <p class="col s12 m12 l12">Ingredient name</p>
+    <div id = "ing">    
+        {{form.ingredient_1}}
+    </div>
+    <p id = "quantity" class="col s12 m12 l12">Quantity</p>
+        {{form.quantity_1}}
+    </div>
+    <div id ="addbtn"> 
+            <button id ="btn" type="btn" class ="make-recipe-btn btn" onclick="add_text(counter)">Add more ingredients</button>
+    </div>
+    <p></p>
+    
+    <input type="submit" class="signup-button">
+    </input>
+</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'matega/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- html page for showing the page to add new ingredients in the fridge-->
+<div class="container4 row">
+    <div class = "row">
+        <div style="width: 50%; float:left">
+            <img src="/static/imgs/logo.matega.png" class="bildefirkantet" alt="fridge-logo">
+        </div>
+
+        <div style="width: 50%; float: right;" class = "midstill col s12 m12 l12">
+            <a href = "/logout/"  class = "høyrehjørne2 col s12 m12 l12" >Sign out</a>
+            <h1 class="col s12 m12 l12">Add/remove groceries</h1>
+            <form action="" method="post" class="">
+                {% csrf_token %}
+                <p class="midtstill col s12 m12 l12  flow-text" > {{ form.fridge }} </p>
+                <p class="midtstill col s12 m12 l12  flow-text" >Ingredient *</p>
+                <p class="midtstill col s12 m12 l12  flow-text" > {{ form.ingredient }}</p>
+                <p class="col s12 m12 l12  flow-text" >Quantity *</p>
+                <p class="midtstill col s12 m12 l12  flow-text" >{{ form.quantity}}
+                <br></br>
+                <input type="submit" class="hungry-button" value = "Add to fridge">
+                </input>
+                <p class="midtstill col s12 m12 l12"><a class="recipe_list_font_size" href="/homepage/">Homepage</a></p>
+            
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+
+<script>
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
+</script>
+
+{{ form.media }}
+{% endblock %}

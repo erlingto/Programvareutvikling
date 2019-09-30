@@ -1,0 +1,29 @@
+{% extends "matega/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container4 row">
+
+    <!--For å komme tilbake til homepage-->
+    <a class="left" href="/homepage/">Back to homepage</a>
+    <!--For å logge ut-->
+    <a href = "/logout/" class = "right" >Sign out</a>
+    <p class="space-class col s12 m12 l12"></p>
+    <h1 class="a-heading">Chef application</h1>
+    
+    <form method="post" action="{% url 'chef:application' %}" class="a-form col s12 m12 l12">
+        {% csrf_token %}
+        {{ form }}
+        <p class="space-class col s12 m12 l12"></p>
+
+        <p class="space-class col s12 m12 l12"></p>
+        <button type="submit" class="apply-button waves-effect waves-green col s12 m12 l12">Apply</button>
+    </form>
+    
+    </div>
+
+
+
+
+{% endblock %}

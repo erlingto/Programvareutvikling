@@ -1,0 +1,38 @@
+image: python:3.5
+
+stages:
+  - test
+  - deploy
+
+test_app:
+  stage: test
+  script: sh setup.sh
+  
+    
+deploy_app:
+  stage: deploy
+  before_script: 
+    # Installerer ssh agent 
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )' 
+    - mkdir -p ~/.ssh 
+    - eval $(ssh-agent -s) 
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config' 
+  script: 
+    # Henter inn SSH nøkkel for å få kontakt med server fra GitLab-variabel 
+    #- echo $ANDREAS_SSH > ~/.ssh/id_rsa
+    #- chmod 600 ~/.ssh/id_rsa
+    #- echo $ANDREAS_SSH2 > ~/.ssh/id_rsa.pub
+    #- chmod 600 ~/.ssh/id_rsa.pub
+    - ssh-add <(echo "$ANDREAS_SSH")
+    # Går inn i repo og kjører git pull
+    #- ssh -p22 andreas@68.183.66.118 "cd gruppe-23/ ; git status ; git pull" 
+    # HEF10 ALTERNATIV LØSNING FORDI NTNU ER FULL AV SMARTE MENNESKER
+    # YEETUS THE FOLDERITUS
+    - ssh -p22 andreas@68.183.66.118 "rm -rf gruppe-23"
+    # #YOLO
+    - ssh -p22 andreas@68.183.66.118 "mkdir gruppe-23"
+    - scp -p22 -r * andreas@68.183.66.118:/home/andreas/gruppe-23
+    - ssh -p22 andreas@68.183.66.118 "source env/matega/bin/activate ; cd gruppe-23 ; python3 manage.py collectstatic ; pip3 install -r requirements.txt ; deactivate"
+    
+  only:
+    - master
